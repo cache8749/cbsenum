@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Exclude the nested ManifestEnum project sources; they're compiled via ProjectReference -->
+    <Compile Remove="manifestenum\**" />
+    <EmbeddedResource Remove="manifestenum\**" />
+    <None Remove="manifestenum\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="manifestenum\ManifestEnum.csproj" />
+  </ItemGroup>
+</Project>
